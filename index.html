@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>30 câu đầu - Sự đồng biến nghịch biến | LaTeX | Khai Sáng</title>
+  <style>
+    :root{--bg:#edf8ff;--card:#fff;--navy:#073b63;--blue:#087bc0;--blue2:#11a6c8;--text:#163044;--muted:#60798e;--line:#d4e7f3;--good:#137b4f;--bad:#b82f2f;--warn:#8a5a00;}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#e8f7ff,#f7fcff 40%,#ffffff);color:var(--text)}
+    .topbar{position:sticky;top:0;z-index:20;display:flex;gap:12px;align-items:center;justify-content:space-between;background:rgba(255,255,255,.92);border-bottom:1px solid var(--line);padding:12px 24px;backdrop-filter:blur(10px)}
+    .brand{font-weight:950;color:var(--navy);letter-spacing:.04em}
+    .mode-group{display:flex;gap:8px;flex-wrap:wrap}
+    button{font-family:inherit}
+    .mini{border:1px solid var(--line);background:#fff;border-radius:10px;padding:9px 12px;font-weight:800;cursor:pointer;color:var(--navy)}
+    .mini.active,.mini.primary{background:linear-gradient(90deg,var(--blue),var(--blue2));color:#fff;border-color:transparent}
+    .mini.danger{color:#b82f2f}
+    .app,.teacher-layout{max-width:1180px;margin:auto;padding:24px 18px 50px}
+    .hero{background:linear-gradient(135deg,#06446f,#0b7fa9);border-radius:28px;padding:30px;box-shadow:0 18px 45px rgba(6,68,111,.22);color:#fff;overflow:hidden;position:relative}
+    .hero:after{content:"";position:absolute;right:-70px;top:-90px;width:260px;height:260px;background:rgba(255,255,255,.12);border-radius:50%}
+    .center-title{font-size:28px;font-weight:950;letter-spacing:.08em;margin:0 0 8px}
+    h1{font-size:48px;line-height:1.05;margin:8px 0 10px}
+    .chapter{font-weight:900;font-size:17px;line-height:1.45;max-width:900px;color:#e7f9ff}
+    .sub{font-size:18px;font-weight:750;color:#d8f5ff;margin-top:10px}
+    .contact-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:10px 13px;font-weight:800}
+    .student-info{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 10px 25px rgba(35,85,115,.08)}
+    .student-info-head{display:flex;gap:12px;align-items:center;margin-bottom:14px}
+    .student-info-head h3{margin:0;color:var(--navy)}
+    .student-info-note{font-size:14px;color:var(--muted)}
+    .student-info-grid{display:grid;grid-template-columns:1.2fr .6fr 1fr;gap:12px}
+    .student-info-field label,.field label{display:block;font-size:13px;font-weight:900;color:var(--muted);margin:0 0 6px;text-transform:uppercase;letter-spacing:.04em}
+    input,textarea,select{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px 13px;font-size:15px;background:#fff;color:var(--text)}
+    textarea{min-height:82px;resize:vertical;line-height:1.45}
+    input.invalid{border-color:#f08b8b;background:#fff6f6}
+    .layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:20px;margin-top:20px;align-items:start}
+    main section{margin-top:20px}
+    .section-label{display:inline-block;background:#e8f6ff;color:var(--blue);font-weight:950;border-radius:999px;padding:7px 12px;margin-bottom:8px}
+    h2{font-size:28px;color:var(--navy);margin:0 0 14px}
+    .question{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;margin:14px 0;box-shadow:0 10px 25px rgba(35,85,115,.07)}
+    .qhead{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:start}
+    .qnum{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;display:grid;place-items:center;font-weight:950}
+    .qtext{font-size:18px;line-height:1.65;font-weight:780}
+    .qimage{display:block;max-width:min(470px,100%);max-height:340px;object-fit:contain;margin:16px auto 20px;padding:10px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 12px 26px rgba(35,85,115,.10)}
+    .options{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px;margin-left:56px}
+    .option{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);background:#fafdff;border-radius:15px;padding:13px;cursor:pointer;line-height:1.45}
+    .option input{width:auto;margin-top:3px}
+    .letter{font-weight:950;color:var(--blue)}
+    aside{position:sticky;top:76px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:0 10px 25px rgba(35,85,115,.08)}
+    aside h3{margin:0 0 10px;color:var(--navy)}
+    .timer{font-weight:900;background:#f1f8fc;border-radius:14px;padding:12px;margin-bottom:12px}
+    .sheet{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:12px 0}
+    .sheet button{border:1px solid var(--line);border-radius:10px;background:#fff;padding:9px 0;font-weight:900;cursor:pointer}
+    .sheet button.done{background:#eaf8ff;border-color:#88cfee;color:#066da8}
+    .sheet button.correct{background:#ecfbf3;border-color:#78cf9f;color:#117b4e}
+    .sheet button.wrong{background:#fff2f2;border-color:#eca1a1;color:#b82f2f}
+    .actions{display:grid;gap:9px}
+    .btn{border:0;border-radius:14px;padding:14px 16px;font-size:16px;cursor:pointer;font-weight:900}
+    .submit{background:linear-gradient(90deg,var(--blue),var(--blue2));color:#fff}
+    .reset{background:#edf3f7;color:#627789}
+    .result{display:none;margin-top:14px;padding:14px;border-radius:15px;background:#eefaf4;border:1px solid #bde9d1;line-height:1.55}
+    .review-box{margin-top:12px;border-top:1px solid #cbe9d6;padding-top:12px;display:grid;gap:8px;max-height:460px;overflow:auto}
+    .review-title{font-weight:950;color:var(--navy);margin-top:8px}
+    .review-item{border:1px solid var(--line);border-radius:12px;padding:9px 10px;background:#fff;font-size:13px;line-height:1.5}
+    .review-item.ok{border-color:#9bd9b7;background:#f2fff8}
+    .review-item.bad{border-color:#f3b4b4;background:#fff7f7}
+    .review-detail{color:#526d80;margin-top:3px}
+    .option.correct-answer{border-color:#8bd5ad;background:#ecfbf3}
+    .option.wrong-answer{border-color:#f0aaaa;background:#fff2f2}
+    .question.review-correct{border-color:#9bd9b7;background:linear-gradient(180deg,#fff,#f0fff7)}
+    .question.review-wrong{border-color:#f3b4b4;background:linear-gradient(180deg,#fff,#fff7f7)}
+    .teacher-layout{display:none}
+    .teacher-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;margin:14px 0;box-shadow:0 10px 25px rgba(35,85,115,.07)}
+    .teacher-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .teacher-actions{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0}
+    .edit-q{border:1px solid var(--line);border-radius:18px;padding:14px;margin:12px 0;background:#fbfeff}
+    .edit-q h4{margin:0 0 10px;color:var(--navy)}
+    .option-edit{display:grid;grid-template-columns:32px 1fr;gap:8px;align-items:center;margin:7px 0}
+    .source-note{font-size:13px;color:var(--muted);margin-top:8px}
+    .footer-note{text-align:center;color:#6a8191;margin-top:34px;font-size:14px}
+
+    .latex-panel{margin:16px 0 4px;padding:15px;border:1px solid #d8cdf8;border-radius:18px;background:linear-gradient(180deg,#faf8ff,#f3efff);color:#4e3c7d}
+    .latex-panel h3{margin:0 0 8px;color:#4b328a;font-size:18px}
+    .latex-panel p{margin:0 0 10px;font-size:14px;line-height:1.55}
+    .latex-toolbar{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+    .latex-chip{border:1px solid #d8cdf8;background:#fff;color:#4b328a;border-radius:10px;padding:8px 10px;cursor:pointer;font-weight:850}
+    .latex-chip:hover{background:#f7f2ff}
+    .latex-editable{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;line-height:1.55}
+    .latex-preview{margin-top:10px;padding:12px 14px;border:1px dashed #b9a9eb;border-radius:13px;background:#fff;color:#24364a;line-height:1.65;overflow-x:auto}
+    .latex-preview-title{font-size:12px;font-weight:950;color:#7357b5;letter-spacing:.06em;margin-bottom:7px;text-transform:uppercase}
+    .latex-preview .preview-option{margin:5px 0}
+    @media(max-width:980px){.layout{grid-template-columns:1fr}aside{position:static}.student-info-grid,.teacher-grid{grid-template-columns:1fr}}
+    @media(max-width:720px){.topbar{padding:10px 12px}h1{font-size:34px}.hero{padding:24px 18px;border-radius:22px}.options{grid-template-columns:1fr;margin-left:0}.qhead{grid-template-columns:38px 1fr}.qnum{width:38px;height:38px}.qtext{font-size:17px}}
+  </style>
+  <script>
+    window.MathJax={tex:{inlineMath:[['\\(','\\)'],['$','$']],displayMath:[['\\[','\\]'],['$$','$$']],processEscapes:true},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">TRUNG TÂM KHAI SÁNG</div>
+    <div class="mode-group">
+      <button class="mini active" id="studentModeBtn">Chế độ học sinh</button>
+      <button class="mini" id="teacherModeBtn">Chế độ giáo viên</button>
+    </div>
+  </div>
+
+  <section class="teacher-layout" id="teacherLayout">
+    <div class="teacher-card">
+      <h2>Chế độ giáo viên</h2>
+      <div class="teacher-grid">
+        <div class="field"><label>Tên trung tâm</label><input id="tCenter"></div>
+        <div class="field"><label>Tên đề</label><input id="tTitle"></div>
+        <div class="field"><label>Tên chương</label><textarea id="tChapter" class="latex-editable"></textarea></div>
+        <div class="field"><label>Thông tin phụ</label><textarea id="tSubtitle" class="latex-editable"></textarea></div>
+        <div class="field"><label>Thời gian làm bài (phút)</label><input id="tDuration" type="number" min="1"></div>
+        <div class="field"><label>Email nhận kết quả</label><input id="tEmail" type="email"></div>
+      </div>
+      <div class="teacher-actions">
+        <button class="mini primary" id="saveBtn">💾 Lưu chỉnh sửa</button>
+        <button class="mini" id="exportBtn">📥 Tải file đã chỉnh để chia sẻ</button>
+        <button class="mini" id="previewBtn">Xem như học sinh</button>
+        <button class="mini danger" id="resetDataBtn">Khôi phục đề gốc</button>
+      </div>
+
+      <div class="latex-panel">
+        <h3>∑ Chế độ LaTeX</h3>
+        <p>Trong ô câu hỏi và đáp án, thầy có thể gõ công thức bằng <b>\( ... \)</b> cho công thức cùng dòng hoặc <b>\[ ... \]</b> cho công thức riêng dòng. Bấm nút bên dưới để chèn nhanh vào ô đang sửa.</p>
+        <div class="latex-toolbar" id="latexToolbar">
+          <button class="latex-chip" type="button" data-latex="\(x^2\)">x²</button>
+          <button class="latex-chip" type="button" data-latex="\(\dfrac{a}{b}\)">a/b</button>
+          <button class="latex-chip" type="button" data-latex="\(\sqrt{x}\)">√x</button>
+          <button class="latex-chip" type="button" data-latex="\(\pi\)">π</button>
+          <button class="latex-chip" type="button" data-latex="\(\mathbb{R}\)">ℝ</button>
+          <button class="latex-chip" type="button" data-latex="\((a;b)\)">Khoảng</button>
+          <button class="latex-chip" type="button" data-latex="\(f'(x)\)">f′(x)</button>
+          <button class="latex-chip" type="button" data-latex="\[\begin{cases}x+y=1\\x-y=2\end{cases}\]">Hệ PT</button>
+        </div>
+      </div>
+      <div class="source-note" id="sourceNote"></div>
+    </div>
+    <div id="teacherQuestions"></div>
+  </section>
+
+  <section class="app" id="studentLayout">
+    <div class="hero">
+      <div class="center-title" id="centerTitle"></div>
+      <div class="chapter" id="chapterView"></div>
+      <h1 id="titleView"></h1>
+      <div class="sub" id="subtitleView"></div>
+      <div class="contact-row">
+        <span class="pill">🎯 Luyện thi Tuyển sinh 10</span>
+        <span class="pill">🎓 Luyện thi Đại học</span>
+        <span class="pill">🚀 Luyện thi Đánh giá năng lực</span>
+      </div>
+    </div>
+
+    <section class="student-info" aria-label="Thông tin học sinh">
+      <div class="student-info-head"><div>👤</div><div><h3>Thông tin học sinh</h3><div class="student-info-note">Vui lòng ghi đầy đủ thông tin trước khi nộp bài.</div></div></div>
+      <div class="student-info-grid">
+        <div class="student-info-field"><label for="studentName">Họ và tên học sinh</label><input id="studentName" type="text" autocomplete="name" placeholder="Ví dụ: Nguyễn Minh Anh"></div>
+        <div class="student-info-field"><label for="studentClass">Lớp</label><input id="studentClass" type="text" placeholder="Ví dụ: 12A1"></div>
+        <div class="student-info-field"><label for="studentSchool">Trường</label><input id="studentSchool" type="text" placeholder="Ví dụ: THPT ..."></div>
+      </div>
+    </section>
+
+    <div class="layout">
+      <main>
+        <section>
+          <div class="section-label">PHẦN TRẮC NGHIỆM</div>
+          <h2>Chọn một đáp án đúng</h2>
+          <div id="questionsBox"></div>
+          <div class="footer-note">Thầy Tuấn – Trung Tâm Khai Sáng</div>
+        </section>
+      </main>
+      <aside>
+        <h3>Phiếu trả lời</h3>
+        <div class="timer">⏱ Còn lại: <span id="timer">45:00</span></div>
+        <div class="sheet" id="answerSheet"></div>
+        <div class="actions">
+          <button class="btn submit" id="submitBtn">Nộp bài</button>
+          <button class="btn reset" id="resetAnswersBtn">Làm lại</button>
+        </div>
+        <div class="result" id="result"></div>
+      </aside>
+    </div>
+  </section>
+
+<script>
+const STORAGE_KEY="khaisang_30_cau_dau_latex_fixed_v20260907";
+const APP_VERSION="khaisang_30_cau_dau_latex_fixed_v20260907";
+const TEACHER_PASSWORD="Tokieumy2709@";
+const demoData={"meta": {"centerTitle": "TRUNG TÂM KHAI SÁNG", "chapter": "CHƯƠNG I. ỨNG DỤNG ĐẠO HÀM ĐỂ KHẢO SÁT VÀ VẼ ĐỒ THỊ HÀM SỐ.", "title": "ĐỀ LUYỆN TẬP SỐ 1", "subtitle": "30 câu đầu · Sự đồng biến – nghịch biến của hàm số · Thời gian 45 phút", "duration": 45, "email": "admin.khaisang@gmail.com", "sourceNote": "Nguồn: 30 câu đầu trong tài liệu “Sự đồng biến – Nghịch biến của hàm số”."}, "questions": [{"text": "Cho hàm số \\(y=\\dfrac{x-2}{x+1}\\). Mệnh đề nào dưới đây đúng?", "options": ["Hàm số nghịch biến trên khoảng \\((-\\infty;-1)\\).", "Hàm số đồng biến trên khoảng \\((-\\infty;-1)\\).", "Hàm số đồng biến trên khoảng \\((-\\infty;+\\infty)\\).", "Hàm số nghịch biến trên khoảng \\((-1;+\\infty)\\)."], "key": "B", "id": "q1", "image": ""}, {"text": "Cho hàm số \\(y=x^3-6x^2+9x-2\\). Mệnh đề nào dưới đây đúng?", "options": ["Hàm số nghịch biến trên khoảng \\((3;+\\infty)\\).", "Hàm số đồng biến trên khoảng \\((1;3)\\).", "Hàm số đồng biến trên khoảng \\((-\\infty;+\\infty)\\).", "Hàm số đồng biến trên khoảng \\((-\\infty;1)\\)."], "key": "D", "id": "q2", "image": ""}, {"text": "Cho hàm số \\(y=-\\dfrac14x^4+2x^2-3\\). Mệnh đề nào dưới đây đúng?", "options": ["Hàm số nghịch biến trên khoảng \\((0;2)\\).", "Hàm số đồng biến trên khoảng \\((-\\infty;-2)\\).", "Hàm số đồng biến trên khoảng \\((2;+\\infty)\\).", "Hàm số đồng biến trên khoảng \\((-2;0)\\)."], "key": "B", "id": "q3", "image": ""}, {"text": "Phát biểu nào sau đây sai về tính đơn điệu của hàm số?", "options": ["Hàm số \\(y=f(x)\\) được gọi là đồng biến trên miền \\(D\\Leftrightarrow \\forall x_1,x_2\\in D\\) và \\(x_1<x_2\\), ta có \\(f(x_1)<f(x_2)\\).", "Hàm số \\(y=f(x)\\) được gọi là đồng biến trên miền \\(D\\Leftrightarrow \\forall x_1,x_2\\in D\\) và \\(x_1<x_2\\), ta có \\(f(x_1)>f(x_2)\\).", "Nếu \\(f'(x)>0,\\forall x\\in(a;b)\\) thì hàm số \\(f(x)\\) đồng biến trên \\((a;b)\\).", "Hàm số \\(f(x)\\) đồng biến trên \\((a;b)\\) khi và chỉ khi \\(f'(x)\\ge0,\\forall x\\in(a;b)\\)."], "key": "B", "id": "q4", "image": ""}, {"text": "Cho hàm số \\(y=f(x)\\) là hàm số xác định trên khoảng \\((a;b)\\). Phát biểu nào đúng?", "options": ["Hàm số \\(y=f(x)\\) được gọi là đồng biến trên \\((a;b)\\) khi và chỉ khi \\(\\forall x_1,x_2\\in(a;b):x_1>x_2\\Leftrightarrow f(x_1)<f(x_2)\\).", "Hàm số \\(y=f(x)\\) được gọi là nghịch biến trên \\((a;b)\\) khi và chỉ khi \\(\\forall x_1,x_2\\in(a;b):x_1>x_2\\Leftrightarrow f(x_1)>f(x_2)\\).", "Hàm số \\(y=f(x)\\) được gọi là đồng biến trên \\((a;b)\\) khi và chỉ khi \\(\\forall x_1,x_2\\in(a;b):x_1<x_2\\Leftrightarrow f(x_1)<f(x_2)\\).", "Hàm số \\(y=f(x)\\) được gọi là nghịch biến trên \\((a;b)\\) khi và chỉ khi \\(\\forall x_1,x_2\\in(a;b):x_1<x_2\\Leftrightarrow f(x_1)<f(x_2)\\)."], "key": "C", "id": "q5", "image": ""}, {"text": "Cho hàm số \\(y=f(x)\\) có đạo hàm trên khoảng \\((a;b)\\). Phát biểu nào sau đây đúng?", "options": ["Hàm số \\(y=f(x)\\) được gọi là đồng biến trên \\((a;b)\\) khi và chỉ khi \\(f'(x)<0,\\forall x\\in(a;b)\\).", "Hàm số \\(y=f(x)\\) được gọi là đồng biến trên \\((a;b)\\) khi và chỉ khi \\(f'(x)\\le0,\\forall x\\in(a;b)\\).", "Hàm số \\(y=f(x)\\) được gọi là đồng biến trên \\((a;b)\\) khi và chỉ khi \\(f'(x)\\ge0,\\forall x\\in(a;b)\\).", "Hàm số \\(y=f(x)\\) được gọi là đồng biến trên \\((a;b)\\) khi và chỉ khi \\(f'(x)\\ge0,\\forall x\\in(a;b)\\) và \\(f'(x)=0\\) tại hữu hạn giá trị \\(x\\in(a;b)\\)."], "key": "D", "id": "q6", "image": ""}, {"text": "Cho hàm số \\(y=f(x)\\) có đạo hàm trên khoảng \\((a;b)\\). Phát biểu nào sau đây đúng?", "options": ["Hàm số \\(y=f(x)\\) được gọi là nghịch biến trên \\((a;b)\\) khi và chỉ khi \\(f'(x)>0,\\forall x\\in(a;b)\\).", "Hàm số \\(y=f(x)\\) được gọi là nghịch biến trên \\((a;b)\\) khi và chỉ khi \\(f'(x)\\ge0,\\forall x\\in(a;b)\\).", "Hàm số \\(y=f(x)\\) được gọi là nghịch biến trên \\((a;b)\\) khi và chỉ khi \\(f'(x)\\le0,\\forall x\\in(a;b)\\).", "Hàm số \\(y=f(x)\\) được gọi là nghịch biến trên \\((a;b)\\) khi và chỉ khi \\(f'(x)\\le0,\\forall x\\in(a;b)\\) và \\(f'(x)=0\\) tại hữu hạn giá trị \\(x\\in(a;b)\\)."], "key": "D", "id": "q7", "image": ""}, {"text": "Cho hàm số \\(y=f(x)\\) có đạo hàm trên khoảng \\((a;b)\\). Phát biểu nào sau đây sai?", "options": ["Hàm số \\(y=f(x)\\) được gọi là đồng biến trên \\((a;b)\\) khi và chỉ khi \\(\\forall x_1,x_2\\in(a;b):x_1>x_2\\Rightarrow f(x_1)>f(x_2)\\).", "Hàm số \\(y=f(x)\\) được gọi là đồng biến trên \\((a;b)\\) khi và chỉ khi \\(\\forall x_1,x_2\\in(a;b):x_1\\ne x_2\\Leftrightarrow \\dfrac{f(x_1)-f(x_2)}{x_2-x_1}>0\\).", "Hàm số \\(y=f(x)\\) được gọi là đồng biến trên \\((a;b)\\) khi và chỉ khi \\(f'(x)\\ge0,\\forall x\\in(a;b)\\) và \\(f'(x)=0\\) tại hữu hạn giá trị \\(x\\in(a;b)\\).", "Hàm số \\(y=f(x)\\) được gọi là nghịch biến trên \\((a;b)\\) khi và chỉ khi \\(f'(x)\\le0,\\forall x\\in(a;b)\\) và \\(f'(x)=0\\) tại hữu hạn giá trị \\(x\\in(a;b)\\)."], "key": "B", "id": "q8", "image": ""}, {"text": "Cho hàm số \\(y=f(x)\\) có đạo hàm trên khoảng \\((a;b)\\). Phát biểu nào sau đây sai?", "options": ["Hàm số \\(y=f(x)\\) được gọi là nghịch biến trên \\((a;b)\\) khi và chỉ khi \\(\\forall x_1,x_2\\in(a;b):x_1>x_2\\Rightarrow f(x_1)<f(x_2)\\).", "Hàm số \\(y=f(x)\\) được gọi là nghịch biến trên \\((a;b)\\) khi và chỉ khi \\(f'(x)<0,\\forall x\\in(a;b)\\).", "Hàm số \\(y=f(x)\\) được gọi là đồng biến trên \\((a;b)\\) khi và chỉ khi \\(f'(x)\\ge0,\\forall x\\in(a;b)\\) và \\(f'(x)=0\\) tại hữu hạn giá trị \\(x\\in(a;b)\\).", "Hàm số \\(y=f(x)\\) được gọi là nghịch biến trên \\((a;b)\\) khi và chỉ khi \\(f'(x)\\le0,\\forall x\\in(a;b)\\) và \\(f'(x)=0\\) tại hữu hạn giá trị \\(x\\in(a;b)\\)."], "key": "B", "id": "q9", "image": ""}, {"text": "Nếu hàm số \\(y=f(x)\\) liên tục và đồng biến trên khoảng \\((-1;2)\\) thì hàm số \\(y=f(x+2)\\) luôn đồng biến trên khoảng nào?", "options": ["\\((-1;2)\\).", "\\((1;4)\\).", "\\((-3;0)\\).", "\\((-2;4)\\)."], "key": "C", "id": "q10", "image": ""}, {"text": "Nếu hàm số \\(y=f(x)\\) liên tục và đồng biến trên khoảng \\((0;2)\\) thì hàm số \\(y=f(2x)\\) luôn đồng biến trên khoảng nào?", "options": ["\\((0;2)\\).", "\\((0;4)\\).", "\\((0;1)\\).", "\\((-2;0)\\)."], "key": "C", "id": "q11", "image": ""}, {"text": "Cho hàm số \\(y=f(x)\\) đồng biến trên khoảng \\((a;b)\\). Mệnh đề nào sau đây sai?", "options": ["Hàm số \\(y=f(x+1)\\) đồng biến trên \\((a;b)\\).", "Hàm số \\(y=-f(x)-1\\) nghịch biến trên \\((a;b)\\).", "Hàm số \\(y=-f(x)\\) nghịch biến trên \\((a;b)\\).", "Hàm số \\(y=f(x)+1\\) đồng biến trên \\((a;b)\\)."], "key": "A", "id": "q12", "image": ""}, {"text": "Hàm số \\(y=-x^3+3x^2+9x+4\\) đồng biến trên khoảng nào sau đây?", "options": ["\\((-3;1)\\).", "\\((-1;3)\\).", "\\((-\\infty;-3)\\).", "\\((3;+\\infty)\\)."], "key": "B", "id": "q13", "image": ""}, {"text": "Hàm số \\(y=\\dfrac14x^4-x^3-2x^2+12x-1\\) nghịch biến trên khoảng nào sau đây?", "options": ["\\((-\\infty;2)\\).", "\\((2;3)\\).", "\\((-\\infty;2)\\cup(2;3)\\).", "\\((-2;2)\\cup(3;+\\infty)\\)."], "key": "B", "id": "q14", "image": ""}, {"text": "Khoảng nào sau đây là khoảng nghịch biến của hàm số \\(y=\\dfrac{x^2-x+1}{x^2+x+1}\\)?", "options": ["\\((-\\infty;-1)\\).", "\\((1;+\\infty)\\).", "\\((-1;1)\\).", "\\((-\\infty;1)\\cup(1;+\\infty)\\)."], "key": "C", "id": "q15", "image": ""}, {"text": "Cho hàm số \\(y=f(x)\\) có đồ thị là đường cong như hình vẽ bên. Khẳng định nào dưới đây là sai?", "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NjAgMzAwIiB3aWR0aD0iNDYwIiBoZWlnaHQ9IjMwMCI+CiAgPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2ZmZmZmZiIvPgogIDxsaW5lIHgxPSI1MCIgeTE9IjE1MC4wIiB4Mj0iNDM1IiB5Mj0iMTUwLjAiIHN0cm9rZT0iIzIyMiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8bGluZSB4MT0iMjk0LjMiIHkxPSIyMCIgeDI9IjI5NC4zIiB5Mj0iMjcwIiBzdHJva2U9IiMyMjIiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPHBhdGggZD0iTSA0MzUgMTUwLjAgbCAtOCAtNSBtIDggNSBsIC04IDUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8cGF0aCBkPSJNIDI5NC4zIDIwIGwgLTUgOCBtIDUgLTggbCA1IDgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8dGV4dCB4PSI0MzAiIHk9IjE0MC4wIiBmb250LWZhbWlseT0iVGltZXMgTmV3IFJvbWFuIiBmb250LXNpemU9IjIwIj54PC90ZXh0PgogIDx0ZXh0IHg9IjMwNC4zIiB5PSIzMiIgZm9udC1mYW1pbHk9IlRpbWVzIE5ldyBSb21hbiIgZm9udC1zaXplPSIyMCI+eTwvdGV4dD4KICA8dGV4dCB4PSIzMDIuMyIgeT0iMTcwLjAiIGZvbnQtZmFtaWx5PSJUaW1lcyBOZXcgUm9tYW4iIGZvbnQtc2l6ZT0iMTgiPk88L3RleHQ+CiAgPGxpbmUgeDE9IjE4NS43IiB5MT0iMzAiIHgyPSIxODUuNyIgeTI9IjI2OCIgc3Ryb2tlPSIjOTk5IiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1kYXNoYXJyYXk9IjYgNiIvPgogIDxsaW5lIHgxPSIyOTQuMyIgeTE9IjMwIiB4Mj0iMjk0LjMiIHkyPSIyNjgiIHN0cm9rZT0iIzk5OSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtZGFzaGFycmF5PSI2IDYiLz4KICA8dGV4dCB4PSIxNzMuNyIgeT0iMTcyLjAiIGZvbnQtZmFtaWx5PSJUaW1lcyBOZXcgUm9tYW4iIGZvbnQtc2l6ZT0iMTgiPuKIkjI8L3RleHQ+CiAgPHBhdGggZD0iTSA1MC4wLC01NDguNiBMIDUxLjcsLTUyNC4xIEwgNTMuNSwtNTAwLjAgTCA1NS4yLC00NzYuNCBMIDU2LjksLTQ1My4zIEwgNTguNywtNDMwLjYgTCA2MC40LC00MDguNSBMIDYyLjEsLTM4Ni44IEwgNjMuOSwtMzY1LjUgTCA2NS42LC0zNDQuOCBMIDY3LjQsLTMyNC40IEwgNjkuMSwtMzA0LjYgTCA3MC44LC0yODUuMSBMIDcyLjYsLTI2Ni4xIEwgNzQuMywtMjQ3LjYgTCA3Ni4wLC0yMjkuNCBMIDc3LjgsLTIxMS43IEwgNzkuNSwtMTk0LjQgTCA4MS4yLC0xNzcuNiBMIDgzLjAsLTE2MS4xIEwgODQuNywtMTQ1LjEgTCA4Ni40LC0xMjkuNCBMIDg4LjIsLTExNC4yIEwgODkuOSwtOTkuMyBMIDkxLjYsLTg0LjkgTCA5My40LC03MC44IEwgOTUuMSwtNTcuMSBMIDk2LjgsLTQzLjggTCA5OC42LC0zMC44IEwgMTAwLjMsLTE4LjMgTCAxMDIuMSwtNi4xIEwgMTAzLjgsNS44IEwgMTA1LjUsMTcuMyBMIDEwNy4zLDI4LjUgTCAxMDkuMCwzOS4zIEwgMTEwLjcsNDkuNyBMIDExMi41LDU5LjkgTCAxMTQuMiw2OS43IEwgMTE1LjksNzkuMiBMIDExNy43LDg4LjMgTCAxMTkuNCw5Ny4xIEwgMTIxLjEsMTA1LjcgTCAxMjIuOSwxMTMuOSBMIDEyNC42LDEyMS44IEwgMTI2LjMsMTI5LjQgTCAxMjguMSwxMzYuNyBMIDEyOS44LDE0My43IEwgMTMxLjYsMTUwLjUgTCAxMzMuMywxNTYuOSBMIDEzNS4wLDE2My4xIEwgMTM2LjgsMTY5LjAgTCAxMzguNSwxNzQuNyBMIDE0MC4yLDE4MC4wIEwgMTQyLjAsMTg1LjEgTCAxNDMuNywxOTAuMCBMIDE0NS40LDE5NC42IEwgMTQ3LjIsMTk5LjAgTCAxNDguOSwyMDMuMSBMIDE1MC42LDIwNy4wIEwgMTUyLjQsMjEwLjYgTCAxNTQuMSwyMTQuMSBMIDE1NS44LDIxNy4zIEwgMTU3LjYsMjIwLjMgTCAxNTkuMywyMjMuMCBMIDE2MS4xLDIyNS42IEwgMTYyLjgsMjI4LjAgTCAxNjQuNSwyMzAuMSBMIDE2Ni4zLDIzMi4xIEwgMTY4LjAsMjMzLjggTCAxNjkuNywyMzUuNCBMIDE3MS41LDIzNi44IEwgMTczLjIsMjM4LjAgTCAxNzQuOSwyMzkuMSBMIDE3Ni43LDI0MC4wIEwgMTc4LjQsMjQwLjcgTCAxODAuMSwyNDEuMiBMIDE4MS45LDI0MS42IEwgMTgzLjYsMjQxLjkgTCAxODUuMywyNDIuMCBMIDE4Ny4xLDI0Mi4wIEwgMTg4LjgsMjQxLjggTCAxOTAuNSwyNDEuNSBMIDE5Mi4zLDI0MS4wIEwgMTk0LjAsMjQwLjUgTCAxOTUuOCwyMzkuOCBMIDE5Ny41LDIzOS4wIEwgMTk5LjIsMjM4LjEgTCAyMDEuMCwyMzcuMSBMIDIwMi43LDIzNi4wIEwgMjA0LjQsMjM0LjcgTCAyMDYuMiwyMzMuNCBMIDIwNy45LDIzMi4wIEwgMjA5LjYsMjMwLjYgTCAyMTEuNCwyMjkuMCBMIDIxMy4xLDIyNy40IEwgMjE0LjgsMjI1LjcgTCAyMTYuNiwyMjMuOSBMIDIxOC4zLDIyMi4xIEwgMjIwLjAsMjIwLjIgTCAyMjEuOCwyMTguMyBMIDIyMy41LDIxNi4zIEwgMjI1LjMsMjE0LjMgTCAyMjcuMCwyMTIuMiBMIDIyOC43LDIxMC4xIEwgMjMwLjUsMjA4LjAgTCAyMzIuMiwyMDUuOSBMIDIzMy45LDIwMy43IEwgMjM1LjcsMjAxLjUgTCAyMzcuNCwxOTkuMyBMIDIzOS4xLDE5Ny4xIEwgMjQwLjksMTk0LjkgTCAyNDIuNiwxOTIuNyBMIDI0NC4zLDE5MC41IEwgMjQ2LjEsMTg4LjMgTCAyNDcuOCwxODYuMSBMIDI0OS41LDE4NC4wIEwgMjUxLjMsMTgxLjkgTCAyNTMuMCwxNzkuOCBMIDI1NC43LDE3Ny43IEwgMjU2LjUsMTc1LjcgTCAyNTguMiwxNzMuNyBMIDI2MC4wLDE3MS44IEwgMjYxLjcsMTY5LjkgTCAyNjMuNCwxNjguMSBMIDI2NS4yLDE2Ni4zIEwgMjY2LjksMTY0LjYgTCAyNjguNiwxNjMuMCBMIDI3MC40LDE2MS40IEwgMjcyLjEsMTYwLjAgTCAyNzMuOCwxNTguNiBMIDI3NS42LDE1Ny4zIEwgMjc3LjMsMTU2LjAgTCAyNzkuMCwxNTQuOSBMIDI4MC44LDE1My45IEwgMjgyLjUsMTUzLjAgTCAyODQuMiwxNTIuMiBMIDI4Ni4wLDE1MS41IEwgMjg3LjcsMTUxLjAgTCAyODkuNSwxNTAuNSBMIDI5MS4yLDE1MC4yIEwgMjkyLjksMTUwLjAgTCAyOTQuNywxNTAuMCBMIDI5Ni40LDE1MC4xIEwgMjk4LjEsMTUwLjQgTCAyOTkuOSwxNTAuOCBMIDMwMS42LDE1MS4zIEwgMzAzLjMsMTUyLjAgTCAzMDUuMSwxNTIuOSBMIDMwNi44LDE1NC4wIEwgMzA4LjUsMTU1LjIgTCAzMTAuMywxNTYuNiBMIDMxMi4wLDE1OC4yIEwgMzEzLjcsMTU5LjkgTCAzMTUuNSwxNjEuOSBMIDMxNy4yLDE2NC4wIEwgMzE4LjksMTY2LjQgTCAzMjAuNywxNjkuMCBMIDMyMi40LDE3MS43IEwgMzI0LjIsMTc0LjcgTCAzMjUuOSwxNzcuOSBMIDMyNy42LDE4MS40IEwgMzI5LjQsMTg1LjAgTCAzMzEuMSwxODguOSBMIDMzMi44LDE5My4wIEwgMzM0LjYsMTk3LjQgTCAzMzYuMywyMDIuMCBMIDMzOC4wLDIwNi45IEwgMzM5LjgsMjEyLjAgTCAzNDEuNSwyMTcuMyBMIDM0My4yLDIyMy4wIEwgMzQ1LjAsMjI4LjkgTCAzNDYuNywyMzUuMSBMIDM0OC40LDI0MS41IEwgMzUwLjIsMjQ4LjMgTCAzNTEuOSwyNTUuMyBMIDM1My43LDI2Mi42IEwgMzU1LjQsMjcwLjIgTCAzNTcuMSwyNzguMSBMIDM1OC45LDI4Ni4zIEwgMzYwLjYsMjk0LjkgTCAzNjIuMywzMDMuNyBMIDM2NC4xLDMxMi44IEwgMzY1LjgsMzIyLjMgTCAzNjcuNSwzMzIuMSBMIDM2OS4zLDM0Mi4zIEwgMzcxLjAsMzUyLjcgTCAzNzIuNywzNjMuNSBMIDM3NC41LDM3NC43IEwgMzc2LjIsMzg2LjIgTCAzNzcuOSwzOTguMSBMIDM3OS43LDQxMC4zIEwgMzgxLjQsNDIyLjggTCAzODMuMiw0MzUuOCBMIDM4NC45LDQ0OS4xIEwgMzg2LjYsNDYyLjggTCAzODguNCw0NzYuOSBMIDM5MC4xLDQ5MS4zIEwgMzkxLjgsNTA2LjIgTCAzOTMuNiw1MjEuNCBMIDM5NS4zLDUzNy4xIEwgMzk3LjAsNTUzLjEgTCAzOTguOCw1NjkuNiBMIDQwMC41LDU4Ni40IEwgNDAyLjIsNjAzLjcgTCA0MDQuMCw2MjEuNCBMIDQwNS43LDYzOS42IEwgNDA3LjQsNjU4LjEgTCA0MDkuMiw2NzcuMSBMIDQxMC45LDY5Ni42IEwgNDEyLjYsNzE2LjQgTCA0MTQuNCw3MzYuOCBMIDQxNi4xLDc1Ny41IEwgNDE3LjksNzc4LjggTCA0MTkuNiw4MDAuNSBMIDQyMS4zLDgyMi42IEwgNDIzLjEsODQ1LjMgTCA0MjQuOCw4NjguNCBMIDQyNi41LDg5Mi4wIEwgNDI4LjMsOTE2LjEgTCA0MzAuMCw5NDAuNiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTExIiBzdHJva2Utd2lkdGg9IjIuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPGNpcmNsZSBjeD0iMTg1LjciIGN5PSIyNDIuMCIgcj0iMy41IiBmaWxsPSIjMTExIi8+CiAgPGNpcmNsZSBjeD0iMjk0LjMiIGN5PSIxNTAuMCIgcj0iMy41IiBmaWxsPSIjMTExIi8+Cjwvc3ZnPg==", "options": ["Hàm số \\(y=f(x)\\) nghịch biến trên khoảng \\((-\\infty;-2)\\).", "Hàm số \\(y=f(x)\\) nghịch biến trên khoảng \\((0;+\\infty)\\).", "Hàm số \\(y=f(x)\\) đồng biến trên khoảng \\((-4;0)\\).", "Hàm số \\(y=f(x)\\) đồng biến trên khoảng \\((-2;0)\\)."], "key": "C", "id": "q16"}, {"text": "Cho hàm số \\(y=\\dfrac{x+1}{x-1}\\). Khẳng định nào sau đây là đúng?", "options": ["Hàm số đồng biến trên \\(\\mathbb{R}\\setminus\\{1\\}\\).", "Hàm số nghịch biến trên \\(\\mathbb{R}\\setminus\\{1\\}\\).", "Hàm số nghịch biến trên \\((-\\infty;1)\\), đồng biến trên \\((1;+\\infty)\\).", "Hàm số nghịch biến trên \\((-\\infty;1)\\) và \\((1;+\\infty)\\)."], "key": "D", "id": "q17", "image": ""}, {"text": "Hàm số \\(y=\\sqrt{x-x^2}\\) nghịch biến trên khoảng:", "options": ["\\(\\left(\\dfrac12;1\\right)\\).", "\\(\\left(0;\\dfrac12\\right)\\).", "\\((-\\infty;0)\\).", "\\((1;+\\infty)\\)."], "key": "A", "id": "q18", "image": ""}, {"text": "Cho hàm số \\(y=\\dfrac14x^4-2x^2-1\\). Chọn khẳng định đúng:", "options": ["Hàm số đồng biến trên các khoảng \\((-2;0)\\) và \\((2;+\\infty)\\).", "Hàm số đồng biến trên các khoảng \\((-\\infty;-2)\\) và \\((0;2)\\).", "Hàm số nghịch biến trên các khoảng \\((-\\infty;-2)\\) và \\((2;+\\infty)\\).", "Hàm số nghịch biến trên các khoảng \\((-2;0)\\) và \\((2;+\\infty)\\)."], "key": "A", "id": "q19", "image": ""}, {"text": "Cho hàm số \\(y=\\dfrac{x-3}{x+3}\\). Khẳng định nào sau đây là khẳng định đúng?", "options": ["Hàm số đơn điệu trên \\(\\mathbb{R}\\).", "Hàm số đồng biến trên các khoảng \\((-\\infty;-3)\\) và \\((-3;+\\infty)\\).", "Hàm số nghịch biến trên \\(\\mathbb{R}\\setminus\\{3\\}\\).", "Hàm số đồng biến trên \\(\\mathbb{R}\\setminus\\{-3\\}\\)."], "key": "B", "id": "q20", "image": ""}, {"text": "Cho hàm số \\(y=x^2(3-x)\\). Mệnh đề nào sau đây là đúng?", "options": ["Hàm số đã cho đồng biến trên khoảng \\((-\\infty;0)\\).", "Hàm số đã cho đồng biến trên khoảng \\((2;+\\infty)\\).", "Hàm số đã cho đồng biến trên khoảng \\((0;2)\\).", "Hàm số đã cho đồng biến trên khoảng \\((-\\infty;3)\\)."], "key": "C", "id": "q21", "image": ""}, {"text": "Trong các hàm số sau, hàm nào đồng biến trên \\(\\mathbb{R}\\)?", "options": ["\\(y=x^4+x^2-1\\).", "\\(y=\\dfrac{x+1}{x+3}\\).", "\\(y=x^2+1\\).", "\\(y=x^3+x\\)."], "key": "D", "id": "q22", "image": ""}, {"text": "Hỏi hàm số \\(y=\\sqrt{x^2-4x+3}\\) đồng biến trên khoảng nào?", "options": ["\\((2;+\\infty)\\).", "\\((-\\infty;3)\\).", "\\((-\\infty;1)\\).", "\\((3;+\\infty)\\)."], "key": "D", "id": "q23", "image": ""}, {"text": "Cho hàm số \\(y=\\dfrac{x}{2}+\\sin^2x,\\ x\\in[0;\\pi]\\). Hỏi hàm số đồng biến trên các khoảng nào?", "options": ["\\(\\left(0;\\dfrac{7\\pi}{12}\\right)\\) và \\(\\left(\\dfrac{11\\pi}{12};\\pi\\right)\\).", "\\(\\left(\\dfrac{7\\pi}{12};\\dfrac{11\\pi}{12}\\right)\\).", "\\(\\left(0;\\dfrac{7\\pi}{12}\\right)\\) và \\(\\left(\\dfrac{7\\pi}{12};\\dfrac{11\\pi}{12}\\right)\\).", "\\(\\left(\\dfrac{7\\pi}{12};\\dfrac{11\\pi}{12}\\right)\\) và \\(\\left(\\dfrac{11\\pi}{12};\\pi\\right)\\)."], "key": "A", "id": "q24", "image": ""}, {"text": "Cho hàm số \\(y=\\dfrac{x-1}{x+2}\\). Mệnh đề nào dưới đây đúng?", "options": ["Hàm số nghịch biến trên \\(\\mathbb{R}\\setminus\\{-2\\}\\).", "Hàm số đồng biến trên \\((-3;+\\infty)\\).", "Hàm số đồng biến trên \\((2;+\\infty)\\).", "Hàm số nghịch biến trên \\((-\\infty;1)\\)."], "key": "C", "id": "q25", "image": ""}, {"text": "Cho hàm số \\(y=x^4+x^2\\). Mệnh đề nào dưới đây đúng?", "options": ["Hàm số nghịch biến trên \\(\\mathbb{R}\\setminus\\{0\\}\\).", "Hàm số đồng biến trên \\((-3;+\\infty)\\).", "Hàm số đồng biến trên \\((2;+\\infty)\\).", "Hàm số nghịch biến trên \\((-\\infty;1)\\)."], "key": "C", "id": "q26", "image": ""}, {"text": "Hỏi hàm số \\(y=x^3+3x^2-4\\) nghịch biến trên khoảng nào?", "options": ["\\((-2;0)\\).", "\\((-\\infty;-2)\\).", "\\((0;+\\infty)\\).", "\\(\\mathbb{R}\\)."], "key": "A", "id": "q27", "image": ""}, {"text": "Cho hàm số \\(y=\\dfrac{-x+2}{x-1}\\). Khẳng định nào dưới đây là đúng?", "options": ["Hàm số đồng biến trên mỗi (từng) khoảng \\((-\\infty;1)\\) và \\((1;+\\infty)\\).", "Hàm số nghịch biến trên mỗi (từng) khoảng \\((-\\infty;1)\\) và \\((1;+\\infty)\\).", "Hàm số nghịch biến trên tập \\(\\mathbb{R}\\setminus\\{1\\}\\).", "Hàm số nghịch biến với mọi \\(x\\ne1\\)."], "key": "B", "id": "q28", "image": ""}, {"text": "Hàm số \\(y=-x^3+3x^2+9x\\) đồng biến trên khoảng nào sau đây?", "options": ["\\((-1;3)\\).", "\\((-2;-1)\\).", "\\(\\mathbb{R}\\).", "\\((1;3)\\)."], "key": "A", "id": "q29", "image": ""}, {"text": "Cho hàm số \\(y=-x^3-6x^2+10\\). Chọn khẳng định đúng trong các khẳng định sau:", "options": ["Hàm số đã cho đồng biến trên khoảng \\((-\\infty;0)\\).", "Hàm số đã cho đồng biến trên khoảng \\((-\\infty;-4)\\).", "Hàm số đã cho đồng biến trên khoảng \\((0;+\\infty)\\).", "Hàm số đã cho đồng biến trên khoảng \\((-4;0)\\)."], "key": "D", "id": "q30", "image": ""}]};
+let data=loadData();
+let secondsLeft=0,timerHandle=null,submitted=false;
+const letters=["A","B","C","D"];
+function clone(x){return JSON.parse(JSON.stringify(x));}
+function withVersion(obj){const o=clone(obj);o._appVersion=APP_VERSION;return o;}
+function loadData(){try{const raw=localStorage.getItem(STORAGE_KEY);if(raw){const saved=JSON.parse(raw);if(saved&&saved._appVersion===APP_VERSION&&saved.meta&&Array.isArray(saved.questions))return saved;}}catch(e){}const fresh=withVersion(demoData);localStorage.setItem(STORAGE_KEY,JSON.stringify(fresh));return fresh;}
+function saveData(){data._appVersion=APP_VERSION;localStorage.setItem(STORAGE_KEY,JSON.stringify(data));}
+function esc(s){return String(s??"").replace(/[&<>"\']/g,function(m){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","\'":"&#39;"}[m];});}
+function nl2br(s){return esc(s).replace(/\n/g,"<br>");}
+function typesetMath(el=document.body){if(window.MathJax?.typesetPromise) window.MathJax.typesetPromise([el]).catch(()=>{});}
+function setMode(mode){document.getElementById('studentLayout').style.display=mode==='student'?'block':'none';document.getElementById('teacherLayout').style.display=mode==='teacher'?'block':'none';document.getElementById('studentModeBtn').classList.toggle('active',mode==='student');document.getElementById('teacherModeBtn').classList.toggle('active',mode==='teacher');if(mode==='student'){renderStudent();restartTimer();}else renderTeacher();}
+document.getElementById('studentModeBtn').onclick=()=>setMode('student');
+document.getElementById('teacherModeBtn').onclick=()=>{const pass=prompt('Nhập mật khẩu Chế độ giáo viên:');if(pass===TEACHER_PASSWORD)setMode('teacher');else if(pass!==null)alert('Mật khẩu chưa đúng.');};
+function renderStudent(){submitted=false;document.getElementById('centerTitle').textContent=data.meta.centerTitle||'';document.getElementById('chapterView').textContent=data.meta.chapter||'';document.getElementById('titleView').textContent=data.meta.title||'';document.getElementById('subtitleView').textContent=data.meta.subtitle||'';const box=document.getElementById('questionsBox');box.innerHTML=data.questions.map((q,i)=>studentQuestion(q,i+1)).join('');buildAnswerSheet();document.getElementById('result').style.display='none';bindStudentEvents();typesetMath(document.getElementById('studentLayout'));}
+function imageHTML(q){return q.image?`<img class="qimage" src="${q.image}" alt="Hình câu hỏi">`:'';}
+function studentQuestion(q,n){return `<article class="question" id="q${n}"><div class="qhead"><div class="qnum">${n}</div><div class="qtext">${nl2br(q.text)}</div></div>${imageHTML(q)}<div class="options">${q.options.map((op,k)=>`<label class="option"><input type="radio" name="q${n}" value="${letters[k]}"><span><span class="letter">${letters[k]}.</span> ${nl2br(op)}</span></label>`).join('')}</div></article>`;}
+function buildAnswerSheet(){const sheet=document.getElementById('answerSheet');sheet.innerHTML='';data.questions.forEach((q,idx)=>sheet.insertAdjacentHTML('beforeend',`<button data-q="${idx+1}">${idx+1}</button>`));}
+function bindStudentEvents(){document.getElementById('answerSheet').onclick=e=>{const b=e.target.closest('button');if(b)document.getElementById('q'+b.dataset.q)?.scrollIntoView({behavior:'smooth',block:'start'});};}
+document.addEventListener('change',e=>{if(e.target.closest('#studentLayout'))refreshProgress();});
+function answered(n){return !!document.querySelector(`input[name="q${n}"]:checked`);}
+function refreshProgress(){document.querySelectorAll('#answerSheet button').forEach(b=>{const n=+b.dataset.q;b.classList.toggle('done',answered(n));});}
+function validateStudentInfo(){const fields=[['studentName','họ và tên'],['studentClass','lớp'],['studentSchool','trường']];let miss=[],first=null;fields.forEach(([id,label])=>{const el=document.getElementById(id);const empty=!(el?.value||'').trim();el?.classList.toggle('invalid',empty);if(empty){miss.push(label);if(!first)first=el;}});if(miss.length){alert('Vui lòng nhập đầy đủ: '+miss.join(', ')+' trước khi nộp bài.');first?.focus();return false;}return true;}
+['studentName','studentClass','studentSchool'].forEach(id=>document.getElementById(id)?.addEventListener('input',e=>e.target.classList.remove('invalid')));
+function studentInfo(){return {name:document.getElementById('studentName').value.trim(),className:document.getElementById('studentClass').value.trim(),school:document.getElementById('studentSchool').value.trim()};}
+function clearMarks(){document.querySelectorAll('.question').forEach(x=>x.classList.remove('review-correct','review-wrong'));document.querySelectorAll('.option').forEach(x=>x.classList.remove('correct-answer','wrong-answer'));document.querySelectorAll('#answerSheet button').forEach(x=>x.classList.remove('correct','wrong'));}
+function buildReview(){clearMarks();let score=0;const details=[];data.questions.forEach((q,idx)=>{const n=idx+1;const selected=document.querySelector(`input[name="q${n}"]:checked`)?.value||'';const ok=selected===q.key;if(ok)score++;document.querySelectorAll(`input[name="q${n}"]`).forEach(input=>{const op=input.closest('.option');if(input.value===q.key)op?.classList.add('correct-answer');if(selected&&input.value===selected&&!ok)op?.classList.add('wrong-answer');});document.getElementById('q'+n)?.classList.add(ok?'review-correct':'review-wrong');const b=document.querySelector(`#answerSheet button[data-q="${n}"]`);b?.classList.add(ok?'correct':'wrong');details.push({n,ok,selected,correct:q.key});});return {score,total:data.questions.length,details};}
+function reviewHtml(details){return details.map(d=>`<div class="review-item ${d.ok?'ok':'bad'}"><b>Câu ${d.n}</b>: ${d.ok?'Đúng':'Sai'}<div class="review-detail">Chọn: ${d.selected||'Chưa chọn'} · Đáp án đúng: ${d.correct}</div></div>`).join('');}
+function answerSummary(details){return details.map(d=>`Câu ${d.n}: ${d.ok?'Đúng':'Sai'} | Chọn: ${d.selected||'Chưa chọn'} | Đáp án: ${d.correct}`).join('\n');}
+async function sendResultEmail(payload){
+  try{
+    await fetch('https://formsubmit.co/ajax/'+encodeURIComponent(data.meta.email||'admin.khaisang@gmail.com'),{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'Kết quả làm bài - '+(payload.student.name||'Học sinh'),_captcha:'false',_template:'table','Tên học sinh':payload.student.name,'Lớp':payload.student.className,'Trường':payload.student.school,'Tên đề':data.meta.title,'Điểm':payload.ten+'/10','Số câu đúng':payload.score+'/'+payload.total,'Thời gian nộp':payload.time,'Chi tiết':payload.summary})});
+  }catch(e){console.warn('Không gửi được email tự động',e);}
+}
+function submitExam(auto=false){if(submitted)return;if(!auto&&!validateStudentInfo())return;submitted=true;clearInterval(timerHandle);const review=buildReview();const ten=review.total?(review.score/review.total*10).toFixed(2):'0.00';const st=studentInfo();const result=document.getElementById('result');result.style.display='block';result.innerHTML=`<div><b>Học sinh:</b> ${esc(st.name)} · <b>Lớp:</b> ${esc(st.className)}<br><b>Trường:</b> ${esc(st.school)}</div><br><b>${auto?'Hết giờ – bài đã được nộp':'Kết quả'}</b><br>Đúng <b>${review.score}/${review.total}</b> câu.<br>Điểm quy đổi: <b>${ten}/10</b><div class="review-title">Chi tiết đúng / sai từng câu</div><div class="review-box">${reviewHtml(review.details)}</div>`;typesetMath(result);result.scrollIntoView({behavior:'smooth',block:'nearest'});sendResultEmail({student:st,score:review.score,total:review.total,ten,time:new Date().toLocaleString('vi-VN'),summary:answerSummary(review.details)});}
+document.getElementById('submitBtn').onclick=()=>submitExam(false);
+document.getElementById('resetAnswersBtn').onclick=()=>{if(confirm('Xóa toàn bộ câu trả lời và làm lại?')){renderStudent();restartTimer();}};
+function restartTimer(){clearInterval(timerHandle);secondsLeft=Math.max(1,Number(data.meta.duration)||45)*60;updateTimer();timerHandle=setInterval(()=>{secondsLeft--;updateTimer();if(secondsLeft<=0){clearInterval(timerHandle);submitExam(true);}},1000);}
+function updateTimer(){const m=String(Math.floor(secondsLeft/60)).padStart(2,'0');const s=String(secondsLeft%60).padStart(2,'0');document.getElementById('timer').textContent=`${m}:${s}`;}
+
+function latexPreviewHTML(q,i){
+  return `<div class="latex-preview-title">Xem trước công thức · Câu ${i+1}</div>
+    <div><b>Câu hỏi:</b> ${nl2br(q.text||'')}</div>
+    <div style="margin-top:8px"><b>Phương án:</b></div>
+    ${(q.options||[]).map((op,k)=>`<div class="preview-option"><b>${letters[k]}.</b> ${nl2br(op||'')}</div>`).join('')}`;
+}
+function renderLatexPreview(i){
+  const box=document.querySelector(`[data-preview="${i}"]`);
+  if(!box || !data.questions[i]) return;
+  box.innerHTML=latexPreviewHTML(data.questions[i],i);
+  typesetMath(box);
+}
+function renderAllLatexPreviews(){
+  document.querySelectorAll('[data-preview]').forEach(el=>renderLatexPreview(+el.dataset.preview));
+}
+function insertAtCursor(el,text){
+  if(!el) return;
+  const start=el.selectionStart ?? el.value.length;
+  const end=el.selectionEnd ?? el.value.length;
+  el.value=el.value.slice(0,start)+text+el.value.slice(end);
+  el.focus();
+  const pos=start+text.length;
+  el.setSelectionRange?.(pos,pos);
+  el.dispatchEvent(new Event('input',{bubbles:true}));
+}
+let activeLatexTextarea=null;
+document.addEventListener('focusin',e=>{
+  if(e.target && e.target.matches('textarea.latex-editable')) activeLatexTextarea=e.target;
+});
+document.getElementById('latexToolbar')?.addEventListener('click',e=>{
+  const btn=e.target.closest('[data-latex]');
+  if(!btn) return;
+  insertAtCursor(activeLatexTextarea,btn.dataset.latex);
+});
+
+function renderTeacher(){document.getElementById('tCenter').value=data.meta.centerTitle||'';document.getElementById('tChapter').value=data.meta.chapter||'';document.getElementById('tTitle').value=data.meta.title||'';document.getElementById('tSubtitle').value=data.meta.subtitle||'';document.getElementById('tDuration').value=data.meta.duration||45;document.getElementById('tEmail').value=data.meta.email||'admin.khaisang@gmail.com';document.getElementById('sourceNote').textContent=data.meta.sourceNote||'';const box=document.getElementById('teacherQuestions');box.innerHTML=data.questions.map((q,i)=>`<div class="edit-q" data-i="${i}"><h4>Câu ${i+1}</h4><label>Nội dung câu hỏi</label><textarea class="latex-editable" data-field="text">${esc(q.text)}</textarea><div class="source-note">Ảnh câu hỏi có thể thay bằng cách tải ảnh khác lên.</div><input type="file" accept="image/*" data-image-upload>${q.image?`<img class="qimage" src="${q.image}">`:''}${q.image?`<button class="mini danger" data-remove-image>Xóa ảnh</button>`:''}<label style="margin-top:10px;display:block">Đáp án đúng</label><select data-field="key">${letters.map(L=>`<option value="${L}" ${q.key===L?'selected':''}>${L}</option>`).join('')}</select><label style="margin-top:10px;display:block">Phương án</label>${q.options.map((op,k)=>`<div class="option-edit"><b>${letters[k]}.</b><textarea class="latex-editable" data-option="${k}">${esc(op)}</textarea></div>`).join('')}<div class="latex-preview" data-preview="${i}"></div></div>`).join('');bindTeacher();renderAllLatexPreviews();typesetMath(box);}
+function readTeacherMeta(){data.meta.centerTitle=document.getElementById('tCenter').value.trim();data.meta.chapter=document.getElementById('tChapter').value.trim();data.meta.title=document.getElementById('tTitle').value.trim();data.meta.subtitle=document.getElementById('tSubtitle').value.trim();data.meta.duration=Number(document.getElementById('tDuration').value)||45;data.meta.email=document.getElementById('tEmail').value.trim()||'admin.khaisang@gmail.com';}
+function bindTeacher(){document.querySelectorAll('.edit-q').forEach(card=>{const i=+card.dataset.i;card.querySelector('[data-field="text"]').oninput=e=>{data.questions[i].text=e.target.value;saveData();renderLatexPreview(i);};card.querySelector('[data-field="key"]').onchange=e=>{data.questions[i].key=e.target.value;saveData();};card.querySelectorAll('[data-option]').forEach(el=>el.oninput=e=>{data.questions[i].options[+el.dataset.option]=e.target.value;saveData();renderLatexPreview(i);});card.querySelector('[data-image-upload]').onchange=e=>{const file=e.target.files?.[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{data.questions[i].image=reader.result;saveData();renderTeacher();};reader.readAsDataURL(file);};card.querySelector('[data-remove-image]')?.addEventListener('click',()=>{data.questions[i].image='';saveData();renderTeacher();});});}
+document.getElementById('saveBtn').onclick=()=>{readTeacherMeta();saveData();alert('Đã lưu chỉnh sửa.');};
+document.getElementById('previewBtn').onclick=()=>{readTeacherMeta();saveData();setMode('student');};
+document.getElementById('resetDataBtn').onclick=()=>{if(confirm('Khôi phục đề gốc?')){data=withVersion(demoData);saveData();renderTeacher();}};
+document.getElementById('exportBtn').onclick=()=>{readTeacherMeta();saveData();let html=document.documentElement.outerHTML;const embedded=JSON.stringify(data).replace(/</g,'\u003c');html=html.replace(/const demoData=[\s\S]*?;\nlet data=loadData\(\);/,`const demoData=${embedded};\nlet data=loadData();`);html=html.replace(/const STORAGE_KEY="[^"]+";/,`const STORAGE_KEY="khaisang_30_cau_dau_latex_fixed_v20260907";`);const blob=new Blob(['<!doctype html>\n'+html],{type:'text/html;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='de-30-cau-dau-khai-sang-latex.html';a.click();URL.revokeObjectURL(a.href);};
+setMode('student');
+window.addEventListener('load',()=>typesetMath(document.body));
+</script>
+</body>
+</html>
